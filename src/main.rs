@@ -10,7 +10,7 @@ const fn gen_inv_powers_of_two() -> [f64; 30] { let mut arr = [0.0; 30];
 
     let mut i = 0;
     while i < 30  {
-        arr[i] = 1.0 / (1u64 << (i + 1)) as f64;
+        arr[i] = 1.0 / (1u64 << i + 1) as f64;
         i += 1;
     }
     arr
@@ -28,6 +28,6 @@ fn md_print() {
         let approx = f_prime_x_64(*pow2);
         let abserr = (approx - cosx).abs();
         println!("|2^-{:02} |{:>14.8} |{:>14.8} |{:>14.8} |{:>14.8} |",
-            i, X, approx, cosx, abserr);
+            i + 1, X, approx, cosx, abserr);
     }
 }
